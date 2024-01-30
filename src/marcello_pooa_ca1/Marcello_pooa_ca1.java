@@ -4,7 +4,9 @@
  */
 package marcello_pooa_ca1;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 /**
@@ -19,6 +21,7 @@ public class Marcello_pooa_ca1 {
     public static void main(String[] args) {
 //        Create a new 'File' object
         File studentsList = new File ("C:\\Users\\Marce\\Desktop\\students.txt");
+        File statusList = new File ("C:\\Users\\Marce\\Desktop\\status.txt");
 //        Try-catch block, will create a new scanner object or catch an error
         try {
             Scanner myScanner = new Scanner(studentsList);
@@ -39,6 +42,22 @@ public class Marcello_pooa_ca1 {
                         System.out.println("First Name has only letters");
                         if (names[1].matches("[a-zA-Z0-9]+")) {
                             System.out.println("Second name contain numbers or letters");
+                            
+                            System.out.println(names[0] + " " + names[1]);
+                            
+                            String name = names[0] + " " + names[1];
+                            
+                            try (BufferedWriter writer = new BufferedWriter(new FileWriter(statusList))) {
+                                writer.write(name);
+                                writer.newLine();
+                                String classesString = String.valueOf(classes);
+                                writer.write(classesString);
+                                writer.newLine();
+                                writer.write(studentNumber);
+                            } catch (Exception e) {
+                                System.out.println("Something went wrong!" + e);
+                            }
+                            
                         } else {
                             System.out.println("Sorry, second name should only contain numbers or letters!");
                         }
