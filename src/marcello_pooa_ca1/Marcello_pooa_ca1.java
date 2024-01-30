@@ -46,20 +46,26 @@ public class Marcello_pooa_ca1 {
                             if (names[1].matches("[a-zA-Z0-9]+")) {
 //                                Get a string with the two names
                                 String name = names[0] + " " + names[1];
-//                                Write information to the file
+//                                 Validates classes integer
                                 if (classes >= 1 && classes <= 8) {
-                                    try {
-                                    writer.write(name);
-                                    writer.newLine();
-                                    String classesString = String.valueOf(classes);
-                                    writer.write(classesString);
-                                    writer.newLine();
-                                    writer.write(studentNumber);
-                                    writer.newLine();
-                                    System.out.println( name + " information added to file");
-                                    } catch (Exception e) {
-                                    System.out.println("Something went wrong!" + e);
-                                    }
+//                                    Validates student number
+                                    if (studentNumber.matches("\\d{2}[A-Za-z]{2,4}\\d+")) {
+//                                        Write information in status.txt
+                                        try {
+                                        writer.write(name);
+                                        writer.newLine();
+                                        String classesString = String.valueOf(classes);
+                                        writer.write(classesString);
+                                        writer.newLine();
+                                        writer.write(studentNumber);
+                                        writer.newLine();
+                                        System.out.println( name + " information added to file");
+                                        } catch (Exception e) {
+                                        System.out.println("Something went wrong!" + e);
+                                        }
+                                    } else {
+                                        System.out.println("Can't add " +names[0] + " " +names[1] + " information, (" + studentNumber + ") is a invalid student number");
+                                    }                                    
                                 } else {
                                     System.out.println("Can't add " +names[0] + " " +names[1] + " information, number of classes should be between 1 and 8");
                                 }
