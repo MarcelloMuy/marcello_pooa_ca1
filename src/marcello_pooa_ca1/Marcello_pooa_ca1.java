@@ -26,6 +26,7 @@ public class Marcello_pooa_ca1 {
         try {
             Scanner myScanner = new Scanner(studentsList);
 //            Loops through the student's information 3 lines at time
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(statusList))) {
             while (myScanner.hasNextLine()) {
 //                Student full name
                 String fullName = myScanner.nextLine();
@@ -47,13 +48,14 @@ public class Marcello_pooa_ca1 {
                             
                             String name = names[0] + " " + names[1];
                             
-                            try (BufferedWriter writer = new BufferedWriter(new FileWriter(statusList))) {
+                            try {
                                 writer.write(name);
                                 writer.newLine();
                                 String classesString = String.valueOf(classes);
                                 writer.write(classesString);
                                 writer.newLine();
                                 writer.write(studentNumber);
+                                writer.newLine();
                             } catch (Exception e) {
                                 System.out.println("Something went wrong!" + e);
                             }
@@ -69,7 +71,8 @@ public class Marcello_pooa_ca1 {
                 }
                 
                 System.out.println();
-        }
+            }            
+            }
         } catch (Exception e) {
             System.out.println("Something went wrong!" + e);
         }
