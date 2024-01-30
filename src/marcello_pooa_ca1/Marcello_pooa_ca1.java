@@ -23,7 +23,6 @@ public class Marcello_pooa_ca1 {
         File studentsList = new File ("C:\\Users\\Marce\\Desktop\\students.txt");
         File statusList = new File ("C:\\Users\\Marce\\Desktop\\status.txt");
 //        
-
 //        Try-catch block, will create a new scanner and new BufferedWriter object or catch an error
             try (Scanner myScanner = new Scanner(studentsList);
                  BufferedWriter writer = new BufferedWriter(new FileWriter(statusList))) {
@@ -53,9 +52,25 @@ public class Marcello_pooa_ca1 {
 //                                        Write information in status.txt
                                         try {
                                         writer.write(studentNumber+" - "+names[1]);                                      
-                                        writer.newLine();
-                                        String classesString = String.valueOf(classes);
-                                        writer.write(classesString);
+                                        writer.newLine();                                        
+                                        switch (classes) {
+                                            case 1:
+                                                writer.write("Very light");
+                                                break;
+                                            case 2:
+                                                writer.write("light");
+                                                break;
+                                            case 3:
+                                            case 4:
+                                            case 5:
+                                                writer.write("Part Time");
+                                                break;
+                                            case 6:
+                                            case 7:
+                                            case 8:
+                                                writer.write("Full Time");
+                                                break;
+                                        }
                                         writer.newLine();
                                         System.out.println( name + " information added to status.txt");
                                         } catch (Exception e) {
