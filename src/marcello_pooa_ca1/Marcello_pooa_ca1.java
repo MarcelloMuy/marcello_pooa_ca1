@@ -47,7 +47,8 @@ public class Marcello_pooa_ca1 {
 //                                Get a string with the two names
                                 String name = names[0] + " " + names[1];
 //                                Write information to the file
-                                try {
+                                if (classes >= 1 && classes <= 8) {
+                                    try {
                                     writer.write(name);
                                     writer.newLine();
                                     String classesString = String.valueOf(classes);
@@ -55,19 +56,21 @@ public class Marcello_pooa_ca1 {
                                     writer.newLine();
                                     writer.write(studentNumber);
                                     writer.newLine();
-                                    System.out.println("Student information added to file");
-                                } catch (Exception e) {
+                                    System.out.println( name + " information added to file");
+                                    } catch (Exception e) {
                                     System.out.println("Something went wrong!" + e);
+                                    }
+                                } else {
+                                    System.out.println("Can't add " +names[0] + " " +names[1] + " information, number of classes should be between 1 and 8");
                                 }
-
                             } else {
-                                System.out.println("Sorry, second name should only contain numbers or letters!");
+                                System.out.println("Can't add " +names[0] + " " +names[1]+ " information, second name should only contain numbers or letters!");
                             }
                         } else {
-                            System.out.println("Sorry, first name does not have only letters!");
+                            System.out.println("Can't add " +names[0] + " " +names[1]+ " information, first name does not have only letters!");
                         }
                     } else {
-                        System.out.println("Sorry, does not have two names!");
+                        System.out.println("Can't add " +names[0] + " information, does not have two names!");
                     }
 
                     System.out.println();
