@@ -22,11 +22,12 @@ public class Marcello_pooa_ca1 {
 //        Create a new 'File' object
         File studentsList = new File ("C:\\Users\\Marce\\Desktop\\students.txt");
         File statusList = new File ("C:\\Users\\Marce\\Desktop\\status.txt");
-//        Try-catch block, will create a new scanner object or catch an error
-        try {
-            Scanner myScanner = new Scanner(studentsList);
-//            Loops through the student's information 3 lines at time
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(statusList))) {
+//        
+
+//        Try-catch block, will create a new scanner and new BufferedWriter object or catch an error
+            try (Scanner myScanner = new Scanner(studentsList);
+                 BufferedWriter writer = new BufferedWriter(new FileWriter(statusList))) {
+//                Loops through the student's information 3 lines at time
                 while (myScanner.hasNextLine()) {
     //                Student full name
                     String fullName = myScanner.nextLine();
@@ -75,9 +76,6 @@ public class Marcello_pooa_ca1 {
             } catch (Exception e) {
             System.out.println("Something went wrong!" + e);
             }
-        } catch (Exception e) {
-            System.out.println("Something went wrong!" + e);
-        }
     }
     
 }
