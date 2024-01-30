@@ -38,17 +38,15 @@ public class Marcello_pooa_ca1 {
     //                Validates the first line that contains the student's name
     //                Gives an appropriate error message
                     String[] names = fullName.split(" ");
+//                    Check for 2 names
                     if (names.length == 2) {
-                        System.out.println("Has two names");
-                        if (names[0].matches("[a-zA-Z]+")) {
-                            System.out.println("First Name has only letters");
+//                        Check for only letters in the first name
+                         if (names[0].matches("[a-zA-Z]+")) {
+//                             Check for only letters and numbers in the last name
                             if (names[1].matches("[a-zA-Z0-9]+")) {
-                                System.out.println("Second name contain numbers or letters");
-
-                                System.out.println(names[0] + " " + names[1]);
-
+//                                Get a string with the two names
                                 String name = names[0] + " " + names[1];
-
+//                                Write information to the file
                                 try {
                                     writer.write(name);
                                     writer.newLine();
@@ -57,6 +55,7 @@ public class Marcello_pooa_ca1 {
                                     writer.newLine();
                                     writer.write(studentNumber);
                                     writer.newLine();
+                                    System.out.println("Student information added to file");
                                 } catch (Exception e) {
                                     System.out.println("Something went wrong!" + e);
                                 }
