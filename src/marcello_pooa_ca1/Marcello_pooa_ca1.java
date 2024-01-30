@@ -52,12 +52,12 @@ public class Marcello_pooa_ca1 {
                                     if (studentNumber.matches("\\d{2}[A-Za-z]{2,4}\\d+")) {
 //                                        Write information in status.txt
                                         try {
-                                        writer.write(studentNumber+" - "+name);                                      
+                                        writer.write(studentNumber+" - "+names[1]);                                      
                                         writer.newLine();
                                         String classesString = String.valueOf(classes);
                                         writer.write(classesString);
                                         writer.newLine();
-                                        System.out.println( name + " information added to file");
+                                        System.out.println( name + " information added to status.txt");
                                         } catch (Exception e) {
                                         System.out.println("Something went wrong!" + e);
                                         }
